@@ -4,7 +4,7 @@ FactoryBot.define do
     email { ::Faker::Internet.email }
     password { 'passcodeAa' }
     password_reset_sent_at { nil }
-    encrypted_otp { }
+    encrypted_otp {  Encryption::Encrypt.call("101010") }
     failed_attempts { 0 }
     verified { true }
     verfied_at { Time.now }

@@ -6,6 +6,8 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+::Dotenv::Railtie.load if %w(development test).include? ENV.fetch('RAILS_ENV', 'development')
+
 module EchoServer
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
@@ -23,5 +25,6 @@ module EchoServer
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
   end
 end

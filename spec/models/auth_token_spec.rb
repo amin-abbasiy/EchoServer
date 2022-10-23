@@ -4,14 +4,11 @@ RSpec.describe AuthToken, type: :model do
   context "Successful Create" do
     subject { FactoryBot.create(:auth_token) }
 
-    it "Create first user" do
+    it "first user" do
       subject
-      expect(User.count).to eq(1)
+      expect(::AuthToken.count).to eq(1)
     end
 
-    it "Create must increment count by 2" do
-      subject
-      expect(User.count).to eq(2)
-    end
+    after(:all) { User.destroy_all }
   end
 end

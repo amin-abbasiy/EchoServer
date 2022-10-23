@@ -41,12 +41,11 @@ gem "bootsnap", require: false
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem "rack-cors"
 
-# add attribute definition to class
-gem 'virtus', '~> 2.0'
+# add jwt library for authentication
+gem 'jwt', '~> 2.5'
 
-# for handle business logic
-gem 'interactor', '~> 3.1', '>= 3.1.2'
-
+# serialize output json in OO way
+gem 'active_model_serializers', '~> 0.10.13'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -55,6 +54,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 6.0', '>= 6.0.1'
   gem 'factory_bot_rails', '~> 6.2'
   gem 'faker', '~> 2.23'
+  gem 'rspec-json_expectations', '~> 2.2'
 end
 
 group :development do

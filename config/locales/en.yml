@@ -31,3 +31,20 @@
 
 en:
   hello: "Hello world"
+  error_messages:
+    echo_error:
+      title: 'EchoError'
+      data_validation: 'Data Payload'
+      attribute_validation: "Attributes payload is invalid"
+      response_validation: "Response payload is invalid"
+      jwt_decode_error: "Jwt decode were failed"
+      unknown: "Unknown Error"
+    record_not_uniq:
+      title: 'Record Uniqueness Error'
+      code: 'record_is_not_uniq'
+    user_is_unauthorized:
+      title: "Unauthorized"
+      code: 'unauthorized'
+    argument_error:
+      title: "Arguments are Unexpected"
+      code: "argument_error"

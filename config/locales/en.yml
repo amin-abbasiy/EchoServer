@@ -48,3 +48,9 @@ en:
     argument_error:
       title: "Arguments are Unexpected"
       code: "argument_error"
+    record_not_found:
+      title: "Record Not found"
+      code: "record_not_found"
+    unauthorized:
+      title: "Unauthorized"
+      code: "unauthorized"

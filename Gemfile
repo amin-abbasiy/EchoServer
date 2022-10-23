@@ -55,10 +55,15 @@ group :development, :test do
   gem 'factory_bot_rails', '~> 6.2'
   gem 'faker', '~> 2.23'
   gem 'rspec-json_expectations', '~> 2.2'
+  gem 'database_cleaner-active_record', '~> 2.0', '>= 2.0.1'
 end
 
 group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+end
+
+group :test do
+
 end
 

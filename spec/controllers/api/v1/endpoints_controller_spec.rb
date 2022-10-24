@@ -1,6 +1,7 @@
 require_relative '../../../rails_helper'
 
 RSpec.describe ::Api::V1::EndpointsController, type: :controller do
+  let(:invalid_id) { "999" * 999 }
   describe "POST" do
     let(:payload) {
       {
@@ -407,9 +408,6 @@ RSpec.describe ::Api::V1::EndpointsController, type: :controller do
     }
 
     #Invalid Data
-    let(:invalid_id) {
-      "999" * 999
-    }
     let(:invalid_data_payload) {
       {
         type: "endpoints",
@@ -600,17 +598,88 @@ RSpec.describe ::Api::V1::EndpointsController, type: :controller do
     end
   end
   describe "DELETE" do
-    context "Successful" do
-      it "deleted"
-      it "deleted code"
+    describe "Logged in" do
+      before do
+        current_user
+      end
+
+      let(:endpoint) { FactoryBot.create(:endpoint, user: current_user)}
+
+      context "Successful" do
+        it "deleted" do
+          delete :destroy, params: { id: endpoint.id }, format: :json
+          expect(response.body).to eq("")
+        end
+        it "deleted code" do
+          delete :destroy, params: { id: endpoint.id }, format: :json
+          expect(response).to have_http_status(204)
+        end
+      end
+      context "Fail" do
+        let(:not_found_error) {
+          {
+            "errors": [
+              {
+                "title": "Record Not found",
+                "status": 404,
+                "code": "record_not_found",
+                "message": [
+                  "Couldn't find Endpoint with 'id'=#{invalid_id} [WHERE \"endpoints\".\"user_id\" = $1]"
+                ]
+              }
+            ]
+          }
+        }
+        it "not found" do
+          delete :destroy, params: { id: invalid_id }, format: :json
+          expect(response.body).to include_json(not_found_error)
+        end
+        it "not found code" do
+          delete :destroy, params: { id: invalid_id }, format: :json
+          expect(response).to have_http_status(404)
+        end
+      end
     end
-    context "Fail" do
-      it "not logged in"
-      it "not logged in code"
-      it "not found"
-      it "not found code"
-      it "invalid id"
-      it "invalid id code"
+    context "not Logged in" do
+      let(:without_jwt_error) {
+        {
+          "errors": [
+            {
+              "title": "Unauthorized",
+              "status": 401,
+              "code": "unauthorized",
+              "message": [
+                "Nil JSON web token"
+              ]
+            }
+          ]
+        }
+      }
+
+      let(:invalid_jwt_error) {
+        {
+          "errors": [
+            {
+              "title": "Unauthorized",
+              "status": 401,
+              "code": "unauthorized",
+              "message": [
+                "Signature verification failed"
+              ]
+            }
+          ]
+        }
+      }
+
+      it "not jwt provided" do
+        delete :destroy, params: { id: 1 }, format: :json
+        expect(response.body).to include_json(without_jwt_error)
+      end
+      it "wrong jwt" do
+        set_invalid_token
+        delete :destroy, params: { id: 1 }, format: :json
+        expect(response.body).to include_json(invalid_jwt_error)
+      end
     end
   end
 end

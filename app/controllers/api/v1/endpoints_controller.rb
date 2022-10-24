@@ -2,7 +2,7 @@ module Api
   module V1
     class EndpointsController < BaseController
       before_action :authorize_request
-      before_action :find_endpoint, only: %w(update delete)
+      before_action :find_endpoint, only: %w(update destroy)
       def index
         @endpoints = current_user.endpoints
 
@@ -21,7 +21,8 @@ module Api
         render json: result, status: 200
       end
 
-      def delete
+      def destroy
+        @endpoint.destroy
       end
 
       def show

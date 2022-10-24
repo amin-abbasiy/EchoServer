@@ -26,7 +26,10 @@ module Api
       end
 
       def show
-        render json: { message: "Hello" }
+        service = ::Endpoint::Mock::new(self)
+        result = service.call
+
+        render json: result
       end
 
       private

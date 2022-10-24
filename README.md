@@ -10,8 +10,18 @@ navigate to root directory and ruby below command:
 under ```app/controllers/api/v1``` our controller file exists and we use this controller to create our mocks
 and save them in our postgres database
 
+## Technical Details
 ### Tests
+
+#### Routes Tests
 routing Tests are exists in under the ```spec/routing``` folder
+
+#### Request tests
+its under request directory and intended to test integration of fuctionality, mock apis test is exists there
+
+#### Controller test
+its under controller directory and it test different aspects of fuctionality and input/output of api
+
 
 ### JSON and JSONB
 we add jsonb to save raw data, its able to save duplicate keys its for rendering
@@ -59,3 +69,11 @@ TRACE : is not applicable to our mock server
 
 ## Error Handling
 errors need to be parameterize to avoid some rails and database errors to shown in response
+
+
+## Api Rule
+there is no other keys allowed in main structure of api, you can add your data to data->attributes->response->body for what ever you want
+
+## ActiveSupport JSON encode
+
+## Logger

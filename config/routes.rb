@@ -3,9 +3,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :endpoints, except: [:show]
-
-
+      resources :endpoints, except: [:show, :edit]
     end
   end
   match "*path", to: "api/v1/endpoints#show", via: [:all]

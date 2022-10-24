@@ -2,6 +2,7 @@ class Api::V1::BaseController < ApplicationController
   include ::Authenticable
   attr_reader :current_user
 
+  private
   def authorize_request
     header = request.headers['Authorization']
     header = header.split(' ').last if header

@@ -38,3 +38,6 @@ with rails and support serialization in OO way
 if you have complicated presentation layer its possible to use decorator to clean up your models my suggest is `draper` library, its has nice integration with
 rails
 ### SimpleCov
+
+### ENV
+environment variables defined in .env file and we use them for development purposes, it add env vars to ENV in rails

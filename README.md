@@ -41,3 +41,21 @@ rails
 
 ### ENV
 environment variables defined in .env file and we use them for development purposes, it add env vars to ENV in rails
+
+## JSON Validator
+
+also its possible to use json validator for validate input structure, for this case its too much to use external lib for app
+https://github.com/voxpupuli/json-schema
+
+## Validation Per Method
+
+you can validate mock api parameters per method, for ex: get can not have body params, this need to understand specification of these
+parameters in details, I saw in elastic search we can use get with body params.
+
+## Not Implemented Method
+CONNECT: connect is intended only for use in requests to a proxy, so I'm not gonna implement it
+OPTIONS: this is intented to commnucation options with server and respond server capablities, its not or our case
+TRACE : is not applicable to our mock server 
+
+## Error Handling
+errors need to be parameterize to avoid some rails and database errors to shown in response

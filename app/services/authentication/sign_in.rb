@@ -6,7 +6,8 @@ class Authentication::SignIn
 
   def call
     if user&.authenticate(@password)
-      return user
+      save_token
+      return user.reload
     else
       raise ::EchoError.new(:authentication)
     end
@@ -19,6 +20,6 @@ class Authentication::SignIn
   end
 
   def save_token
-    user.auth_tokens.where(token_type: 'login', name: 'jwt').last.update!(value: user.token)
+    user.auth_tokens.where(token_type: 'login', name: 'jwt').last.update!(value: user.generate_token)
   end
 end

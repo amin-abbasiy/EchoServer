@@ -14,6 +14,6 @@ class CreateEndpoints < ActiveRecord::Migration[7.0]
     end
 
     add_index :endpoints, :verb
-    add_index :endpoints, [:user_id, :path] , unique: true
+    add_index :endpoints, [:user_id, :path, :verb] , unique: true
   end
 end

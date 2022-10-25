@@ -1,8 +1,12 @@
 require_relative '../../../rails_helper'
 
-RSpec.describe ::Api::V1::BaseController do
-  describe "successful auth" do
-    it "error check" do
+<<<<<<< HEAD
+module Api
+  module V1
+    RSpec.describe BaseController do
+      describe "Rescue" do
+
+      end
     end
   end
 end

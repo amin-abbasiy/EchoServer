@@ -44,8 +44,4 @@ class ApplicationController < ActionController::API
 
     render json: { errors: [error] }, status: status
   end
-
-  def render_json_validation_error(resource)
-    render json: resource, status: :bad_request, adapter: :json_api, serializer: ::ActiveModel::Serializer::ErrorSerializer
-  end
 end

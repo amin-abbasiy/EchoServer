@@ -30,7 +30,8 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  messages:
+    greet: "Hello, Welcome To Echo Server"
   error_messages:
     echo_error:
       title: 'EchoError'
@@ -54,3 +55,6 @@ en:
     unauthorized:
       title: "Unauthorized"
       code: "unauthorized"
+    record_invalid:
+      title: "Record is Invalid"
+      code: "record_invalid"

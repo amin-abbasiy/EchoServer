@@ -63,7 +63,7 @@ group :development do
   # gem "spring"
 end
 
-group :test do
+# show test coverage
+gem 'simplecov', '~> 0.21.2', require: false, group: :test
 
-end
 

@@ -11,7 +11,7 @@ class User < ApplicationRecord
             length: { minimum: 8 },
             if: -> { new_record? || !password.nil? }
 
-  def token
+  def generate_token
     ::Authenticable::JWT::encode({ user_id: self.id })
   end
 end

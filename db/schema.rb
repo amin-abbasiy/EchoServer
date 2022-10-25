@@ -36,7 +36,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_22_135732) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id", "path"], name: "index_endpoints_on_user_id_and_path", unique: true
+    t.index ["user_id", "path", "verb"], name: "index_endpoints_on_user_id_and_path_and_verb", unique: true
     t.index ["user_id"], name: "index_endpoints_on_user_id"
     t.index ["verb"], name: "index_endpoints_on_verb"
   end

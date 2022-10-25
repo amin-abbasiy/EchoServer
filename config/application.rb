@@ -1,5 +1,4 @@
 require_relative "boot"
-require_relative '../lib/request_validator'
 require "rails/all"
 
 # Require the gems listed in Gemfile, including any gems
@@ -14,9 +13,6 @@ module EchoServer
     config.load_defaults 7.0
 
     config.autoload_paths += %W( lib/ controllers/)
-
-    # add middleware
-    # config.middleware.use RequestValidator
 
     # Configuration for the application, engines, and railties goes here.
     #

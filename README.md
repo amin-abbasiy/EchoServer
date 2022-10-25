@@ -48,6 +48,18 @@ with rails and support serialization in OO way
 if you have complicated presentation layer its possible to use decorator to clean up your models my suggest is `draper` library, its has nice integration with
 rails
 ### SimpleCov
+test coverage exists under coverage directory its for development purposes so we put it in .gitignore 
+file, to see result run `$ rspec` then run below command to open in your desired browser
+
+in Mac
+
+    $ open coverage/index.html
+
+in Ubuntu
+
+    $ xdg-open coverage/index.html
+
+you can just simply open index.html in your browser
 
 ### ENV
 environment variables defined in .env file and we use them for development purposes, it add env vars to ENV in rails

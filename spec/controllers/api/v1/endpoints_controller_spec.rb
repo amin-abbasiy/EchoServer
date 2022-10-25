@@ -624,7 +624,7 @@ RSpec.describe ::Api::V1::EndpointsController, type: :controller do
                 "status": 404,
                 "code": "record_not_found",
                 "message": [
-                  "Couldn't find Endpoint with 'id'=#{invalid_id} [WHERE \"endpoints\".\"user_id\" = $1]"
+                  "Endpoint not found"
                 ]
               }
             ]

@@ -4,7 +4,7 @@ FactoryBot.define do
     value { Authenticable::JWT::encode({ user_id: user.id, iat: Time.now.to_i })  }
     name { 'jwt' }
     token_type { 'login' }
-
+    expire_at { 24.hours.from_now }
     trait :expired do
       value { Authenticable::JWT::encode({ user_id: user.id, iat: Time.now.to_i }, Time.now - 1.hour)  }
     end

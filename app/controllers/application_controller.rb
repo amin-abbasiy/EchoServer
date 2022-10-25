@@ -2,7 +2,8 @@ class ApplicationController < ActionController::API
   VALID_STATUS_CODES = %W(200 201 204)
 
   rescue_from ActiveRecord::RecordNotFound do |e|
-    render_json_error(:not_found, :record_not_found, nil,  message: [e])
+    message = %Q{#{e.model} } + I18n.t("error_messages.record_not_found.message")
+    render_json_error(:not_found, :record_not_found, nil,  message: [message])
   end
 
   rescue_from ::JWT::DecodeError do |e|
@@ -22,6 +23,11 @@ class ApplicationController < ActionController::API
   rescue_from ::ArgumentError do |_exception|
     errors_messages = [_exception.message]
     render_json_error(:bad_request, :argument_error, nil, message: errors_messages)
+  end
+
+  rescue_from ::ActionDispatch::Http::Parameters::ParseError do |exception|
+    errors_messages = [exception.message]
+    render_json_error(:bad_request, :parameter_error, nil, message: errors_messages)
   end
 
   rescue_from ::EchoError do |_exception|

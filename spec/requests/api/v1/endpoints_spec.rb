@@ -65,7 +65,7 @@ RSpec.describe "Endpoints", type: :request do
               "status": 404,
               "code": "record_not_found",
               "message": [
-                "Couldn't find Endpoint with [WHERE \"endpoints\".\"user_id\" = $1 AND \"endpoints\".\"verb\" = $2 AND \"endpoints\".\"path\" = $3]"
+                "Endpoint not found"
               ]
             }
           ]

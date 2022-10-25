@@ -6,6 +6,7 @@ RSpec.describe EchoError do
     let(:data_validation) { described_class.new(:data_validation) }
     let(:attribute_validation) { described_class.new(:attribute_validation) }
     let(:response_validation) { described_class.new(:response_validation) }
+    let(:authentication) { described_class.new(:authentication) }
     let(:unknown_error) { described_class.new(:invalid_code) }
 
     it "unknown error" do
@@ -26,6 +27,10 @@ RSpec.describe EchoError do
 
     it "response error" do
       expect(response_validation.message).to eq('Response payload is invalid')
+    end
+
+    it "authentication error" do
+      expect(authentication.message).to eq('Email or password is incorrect')
     end
   end
 end

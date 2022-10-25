@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       resources :endpoints, except: [:show, :edit]
     end
   end
+  post "login", to: "api/v1/authentications#login"
   match "*path", to: "api/v1/endpoints#show", via: [:all]
 
 end

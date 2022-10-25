@@ -49,7 +49,7 @@ RSpec.describe ApplicationController do
               "status"=>404,
               "code"=>"record_not_found",
               "message"=>[
-                "ActiveRecord::RecordNotFound"
+                " not found"
               ]
             }
           ]

@@ -4,6 +4,7 @@ class CreateAuthTokens < ActiveRecord::Migration[7.0]
       t.string :name
       t.text :value
       t.integer :token_type
+      t.datetime :expire_at
       t.references :user, null: false, foreign_key: true
 
       t.timestamps

@@ -39,6 +39,7 @@ en:
       attribute_validation: "Attributes payload is invalid"
       response_validation: "Response payload is invalid"
       jwt_decode_error: "Jwt decode were failed"
+      authentication: "Email or password is incorrect"
       unknown: "Unknown Error"
     record_not_uniq:
       title: 'Record Uniqueness Error'
@@ -52,9 +53,13 @@ en:
     record_not_found:
       title: "Record Not found"
       code: "record_not_found"
+      message: "not found"
     unauthorized:
       title: "Unauthorized"
       code: "unauthorized"
     record_invalid:
       title: "Record is Invalid"
       code: "record_invalid"
+    parameter_error:
+      title: "Parameter format is Invalid"
+      code: "invalid_parameter"

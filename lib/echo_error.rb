@@ -17,6 +17,10 @@ class EchoError < StandardError
       @status = 400
       renderer(code)
     when :jwt_decode_error
+      @status = 400
+      renderer(code)
+    when :authentication
+      @status = 400
       renderer(code)
     else
       @status = 400

@@ -22,13 +22,13 @@ RSpec.describe "routes for Endpoints", :type => :routing do
                   id: "1")
   end
   it "routes /endpoints to the Endpoints controller" do
-    expect(delete("greet")).
+    expect(get("greet")).
       to route_to(controller: 'api/v1/endpoints',
                   action: 'show',
                   path: "greet")
   end
   it "routes /endpoints to the Endpoints controller" do
-    expect(delete("random")).
+    expect(put("random")).
       to route_to(controller: 'api/v1/endpoints',
                   action: 'show',
                   path: "random")

@@ -6,6 +6,10 @@ Welcome to the EchoServer
 
 EchoServer is a web service which provides creating and managing mock apis with desired details.
 
+## Requirements
+
+I consider you already installed `ruby`, `rails`, `postgres` in your system
+
 ## Installation
 first run: 
 
@@ -26,9 +30,7 @@ Please set your postgres database config in the `.env` file in the root director
 
 Note. if your config is ok and you face peer connection error, check your postgres [configuration](https://www.postgresql.org/docs/current/auth-pg-hba-conf.html)
 
-## Requirements
-
-I consider you already installed `ruby`, `rails`, `postgres` in your system
+## Server Authentication
 
 Please use this data to login, app does not support registration process
 

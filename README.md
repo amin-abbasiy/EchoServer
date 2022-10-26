@@ -2,7 +2,7 @@
 
 Welcome to the EchoServer
 
-## what is EchoServer?
+## What is EchoServer?
 
 EchoServer is a web service which provides creating and managing mock apis with desired details.
 
@@ -13,9 +13,9 @@ first run:
 
 then:
 
-    $ bin/setup.sh
+    $ bin/setup.sh app
 
-`setup.sh` will automatically set env var for database credentials, if you face error:
+`setup.sh` will automatically set env var for database credentials, if you face error in console or running `$ rspec`:
 
 Note. please set your postgres database config in the .env file in root directory if you have any database connection problem. (also its possible to set variables in your shell env)
 
@@ -100,6 +100,11 @@ then add your ngrok host to your application.rb
 
 Note. at the moment no extra attributes accepted from input, all data is restricted to specified data, you can add data only to headers and
 body keys
+
+## Test
+using this command you can run application tests
+
+    $ rspec
 
 ## Application Modules
 

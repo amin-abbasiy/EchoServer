@@ -7,6 +7,11 @@ Welcome to the EchoServer
 EchoServer is a web service which provides creating and managing mock apis with desired details.
 
 ## Installation
+first run: 
+
+    $ sudo chmod +x bin/setup.sh
+
+then:
 
     $ bin/setup.sh
 

@@ -1,26 +1,95 @@
 # EchoServer
 
-The boy of scout rule
+Welcome to the EchoServer
 
-## Requirements
+## what is EchoServer?
 
-I consider you already installed ruby, rails, postgres in your system
-
-Please use `{ password: 'adminadmin', email: "admin@mail.com" }` data to login, app does not support registration process
+EchoServer is a web service which provides creating and managing mock apis with desired details.
 
 ## Installation
 
-navigate to project root directory run below command:
+    $ bin/setup.sh
 
-    $ bin/setup_server
+`setup.sh` will automatically set env var for database credentials, if you face error:
 
-this script will install and resolve project dependencies and also connect to the postgres db
+Note. please set your postgres database config in the .env file in root directory if you have any database connection problem. (also its possible to set variables in your shell env)
+
+     DATABASE_HOST=<your db host>
+     DATABASE_PORT=<your db port>
+     DATABASE_USERNAME=<your db username>
+     DATABASE_PASSWORD=<your db password>
+
+Note. if your config is ok and you face peer connection error, check your postgres [configuration](https://www.postgresql.org/docs/current/auth-pg-hba-conf.html)
+
+## Requirements
+
+I consider you already installed `ruby`, `rails`, `postgres` in your system
+
+Please use this data to login, app does not support registration process
+
+```js
+    { 
+        "password" : 'adminadmin',
+        "email" : "admin@mail.com"
+    }
+```
 
 ## ENV
 
 system handles environments variables with [.dotenv](https://github.com/bkeepers/dotenv) library and we set env variables in .env file in root directory, so all variables is accesable through ENV.
 
 Note. this is for development purposes
+
+## API Collection in Postman
+
+Api list is available in the Postman, to use please click [EchoServer](https://www.postman.com/uamin-abbasi/workspace/my-workspace/request/22877222-437b9b0c-c964-44a7-afee-d80a14cd8343?ctx=documentation)
+please set url variable in postman to your remote url
+
+in case of using online collection:
+1. Please select DEV environment
+2. token variable automatically will set after login
+
+{{url}} : you need to set url to your local url or ngrok remote url if you use online collection
+
+{{token}} : user token to work with token endpoints
+
+### Request via Postman online collection to local 
+
+*if you want to run postman locally and test apis in local skip this section*
+
+#### Connect To Remote Collection
+
+**Step 1**
+
+In ubuntu: 
+        
+    $ sudo snap install ngrok
+
+In mac:
+
+    $ brew install ngrok/ngrok/ngrok
+
+if you need more data about ngrok visit [ngrok docs](https://ngrok.com/docs/getting-started)
+
+**step 2**
+
+you need to add your ngrok key to ngrok.yml file, use mine
+
+    ngrok config add-authtoken 1n0mFSVOTlDkEVPfZLOK75BY9TR_3APBxDQcaNwi1RYHkHd5k
+
+**step 3**
+
+port: for rails default its 3000
+
+    ngrok http <port>
+
+**step 4**
+
+Note. Use -b <host> -p <port> in running rails server
+
+then add your ngrok host to your application.rb
+
+    config.hosts << "<your random ngrok host>.ngrok.io"
 
 ## Api Rule
 
@@ -117,7 +186,7 @@ you can just simply open index.html in your browser
 
 ## Scenario Example
 
-#### Step 1
+### Step 1
 
 <details>
   <summary>Login</summary>
@@ -157,7 +226,7 @@ you can just simply open index.html in your browser
   </markdown>
 </details>
 
-#### Step 2
+### Step 2
 
 <details>
   <summary>Create a Mock</summary>
@@ -208,7 +277,7 @@ you can just simply open index.html in your browser
   </markdown>
 </details>
 
-#### Step 3
+### Step 3
 
 <details>
   <summary>Call Created mock in specified Http method</summary>
@@ -236,42 +305,42 @@ you can just simply open index.html in your browser
 
 ## Potential Improvements
 
-#### Decorator
+The Boy Scout Rule:
+> “Always leave the campground cleaner than you found it.”
+
+### Decorator
 
 if you have complicated presentation layer its possible to use decorator to clean up your models my suggest is [draper](https://github.com/drapergem/draper) library, its has nice integration with
 rails
 
-#### Error Handling Options
+### Error Handling Options
 
 errors need to be parameterize to avoid some rails and database errors to shown in response
 
-#### JSON Validator
+### JSON Validator
 
 also its possible to use json validator such [json-schema](https://github.com/voxpupuli/json-schema) for validate input structure, for this case its too much to use external lib for app
 
-#### Test Options
+### Test Options
 
 there is some option to running and writing tests faster such as [shoulda matchers](https://github.com/thoughtbot/shoulda-matchers) it wasn't
 necessary to add additional library to this app.
 
-#### Validation Per Method
+### Validation Per Method
 
 you can validate mock api parameters per method, for ex: get can not have body params, this need to understand specification of these
 http methods in detail, I saw in elastic search we can use get with body params.
 
-#### Not Implemented Method
+### Not Implemented Method
 
 CONNECT: connect is intended only for use in requests to a proxy, so I'm not gonna implement it
 OPTIONS: this is intended to communication options with server and respond server capabilities, its not or our case
 TRACE : is not applicable to our mock server
 
-## Middleware
+### Middleware
+there is some idea for log all incoming request using custom middleware check out [request logger](https://gist.github.com/jugyo/300e93d6624375fe4ed8674451df4fe0) if you are interested
 
-is case of user concern its possible to add middleware to filter specific aspect of request.
+also is case of user concern its possible to add middleware to filter specific aspect of request.
 
-## ActiveSupport JSON encode
-
-
-## Logger
-
-
+### Logger
+its good idea to log database some important transaction, its good for trace some user trails

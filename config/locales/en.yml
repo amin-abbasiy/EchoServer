@@ -44,6 +44,7 @@ en:
     record_not_uniq:
       title: 'Record Uniqueness Error'
       code: 'record_is_not_uniq'
+      message: "is not uniq"
     user_is_unauthorized:
       title: "Unauthorized"
       code: 'unauthorized'

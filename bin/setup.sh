@@ -3,20 +3,18 @@
 set -e
 
 
-echo "Pleas Fill Database Information"
+echo "Please Fill Database Information"
 
 read -p 'Host:' host
 read -p 'Port:' port
 read -p 'Username:' username
 read -p 'Password :' password
 
-for i in 1 2 3 4 5
-do
-   export DATABASE_HOST=$host
-   export DATABASE_PORT=$port
-   export DATABASE_USERNAME=$username
-   export DATABASE_PASSWORD=$password
-done
+
+export DATABASE_HOST=$host
+export DATABASE_PORT=$port
+export DATABASE_USERNAME=$username
+export DATABASE_PASSWORD=$password
 
 #run postgres
 until PGPASSWORD="$DATABASE_PASSWORD" psql -h "$DATABASE_HOST" -p $DATABASE_PORT -U "$DATABASE_USERNAME" postgres -c '\l';

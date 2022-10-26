@@ -15,7 +15,7 @@ then:
 
     $ bin/setup.sh app
 
-`setup.sh` will automatically set env var for database credentials, if you face error:
+`setup.sh` will automatically set env var for database credentials, if you face error in console or running `$ rspec`:
 
 Note. please set your postgres database config in the .env file in root directory if you have any database connection problem. (also its possible to set variables in your shell env)
 

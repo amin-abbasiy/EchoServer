@@ -103,6 +103,10 @@ then add your ngrok host to your application.rb
 Note. at the moment no extra attributes accepted from input, all data is restricted to specified data, you can add data only to headers and
 body keys
 
+## Api Documentation
+
+Api documentation is hosted, please visit [EchoServer API doc](http://amin-abbasi.com/docs/) to see list of APIs.
+
 ## Test
 using this command you can run application tests
 

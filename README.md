@@ -60,6 +60,8 @@ in case of using online collection:
 
 {{token}} : user token to work with token endpoints
 
+{{id}} : created endpoint ID
+
 ### Request via Postman online collection to local 
 
 *if you want to run postman locally and test apis in local skip this section*
@@ -117,9 +119,10 @@ using this command you can run application tests
 ### Controllers
 **ApplicationController:** we use this controller to rescue and format all our exception accures in our application, this include rails application errors and custom error `EchoError`.
 
-under ```app/controllers/api/v1``` our controller file exists 
 
 ### Controllers V1
+
+under ```app/controllers/api/v1``` our controllers file exists 
 
 **EndpointsController:** we use this controller to create our mocks and save them in our postgres database.<br/>
 **AuthenticationsController:** this controller provide login feature for users.<br/>
@@ -128,8 +131,8 @@ under ```app/controllers/api/v1``` our controller file exists
 ### Models
 
 **AuthToken:** we keep our authentication information jwt for now in this table and intention of separating is for safe logout after user jwt expired<br/>
-**User:** this entity is for keeping our user data
-**endpoints:** endpoint entity keep our mock data, response column is json and we created it for query purposes, so we keep mock headers and body in jsonb(raw data)
+**User:** this entity is for keeping our user data<br/>
+**endpoints:** endpoint entity keep our mock data, response column is json and we created it for query purposes, so we keep mock headers and body in jsonb(raw data)<br/>
 so all spaces and duplicate key is possible to these columns
 
 ### Services
